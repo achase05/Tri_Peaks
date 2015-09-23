@@ -6,7 +6,6 @@ Start
       Shuffle fuction on deck stack
     Creates the peaks
       
-      *Use 4 arrays and compare indeces for flipping
     Populates peaks
     Burns one card to trash pile
     Rest sit in deck stack
