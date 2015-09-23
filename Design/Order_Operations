@@ -5,8 +5,11 @@ Start
       Stack for trash
       Shuffle fuction on deck stack
     Creates the peaks
-      
+      Consider peaks as Four arrays
+        Bottom, LowerMid, UpperMid, Top
+        Assign lengths independently
     Populates peaks
+      Take from the deck stack and deal to each array
     Burns one card to trash pile
     Rest sit in deck stack
     
