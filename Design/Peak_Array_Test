@@ -1,1 +1,12 @@
 
+A is an array of arrays
+
+Switch(A[])
+Case(0)
+2I,2i+1
+
+Case(1)
+2(i-1), 2(i-1)+2
+
+Case(2)
+I,i+1
