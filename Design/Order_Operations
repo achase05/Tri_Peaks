@@ -1,0 +1,22 @@
+Start 
+  Play button
+    Creates and shuffles the deck
+      Stack for deck
+      Stack for trash
+      Shuffle fuction on deck stack
+    Creates the peaks
+      
+    Populates peaks
+    Burns one card to trash pile
+    Rest sit in deck stack
+    
+  In play
+    Click function
+      On card in peak
+        Tests if playable
+          If playable, plays
+          If not, does nothing
+      On deck
+        Adds card to trash pile
+        Becomes active card
+    
