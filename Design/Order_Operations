@@ -15,6 +15,7 @@ Start
       On card in peak
         Tests if playable
           If playable, plays
+            Check on same array index, and index +1
           If not, does nothing
       On deck
         Adds card to trash pile
