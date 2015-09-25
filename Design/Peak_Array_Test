@@ -1,12 +1,66 @@
+var peaks = new peaks(["Top"], ["Mid_Top"],["Mid_Bot"], ["Bottom"]);
+Top = (0,1,2);
+Mid_Top = (0,1,2,3,4,5);
+Mid_Bot = (0,1,2,3,4,5,7,8);
+Bottom = (0,1,2,3,4,5,6,7,8,9);
+function Card(rank, suit, active) {
 
-A is an array of arrays
+  this.rank = rank;
+  this.suit = suit;
+  this.active = "Yes";
+}
 
-Switch(A[])
-Case(0)
-2I,2i+1
+Stack deck;
 
-Case(1)
-2(i-1), 2(i-1)+2
 
-Case(2)
-I,i+1
+var deck = Stack();
+deck.stackMakeDeck(1);
+deck.stackShuffle(1);
+for(int i = 0; i<peaks.length; i++)
+{
+	for(int j = 0; j<peaks[i].length; j++)
+	{
+		peaks[[i][j]] = deck.draw(1);
+	}
+}
+
+var trashDeck = Stack();
+
+
+function cardCompare(leftChild, rightChild)
+{
+	if(leftChild.active == "No" || rightChild.active == "No")
+	{
+		return 1;
+	}
+	
+}
+function flipCheck()
+{
+	for(int i = 0; i < peaks.length(); i++)
+	{
+		switch(peaks.[i])
+		{
+			Case(0)
+			
+			if(cardCompare(2i,2i+1) = 1)
+			{
+				flip();
+			}
+
+			Case(1)
+			if((cardCompare(2(i-1), 2(i-1)+2) = 1);
+			{
+				flip();
+			}
+
+			Case(2)
+			if(cardCompare(i,i+1) = 1)
+			{
+				flip();
+			}
+		}
+	}
+}
+
+
