@@ -27,40 +27,54 @@ for(int i = 0; i<peaks.length; i++)
 var trashDeck = Stack();
 
 
-function cardCompare(leftChild, rightChild)
+ffunction cardCompare(leftChild, rightChild, peaksIndex)
 {
-	if(leftChild.active == "No" || rightChild.active == "No")
+	var layerArray = peaks[peaksIndex];
+	if(layerArray[leftChild].active == 0 || layerArray[rightChild].active == 0)
 	{
 		return 1;
 	}
 	
 }
+
 function flipCheck()
 {
+	var rowArray;
 	for(int i = 0; i < peaks.length(); i++)
 	{
-		switch(peaks.[i])
+		rowArray = peaks[i];
+		for(int j = 0; j < rowArray.length; j++)
+		switch(peaks[i])
 		{
 			Case(0)
 			
-			if(cardCompare(2i,2i+1) = 1)
+			if(cardCompare(2i,2i+1, j) = 1)
 			{
-				flip();
+				flip(i,j);
 			}
 
 			Case(1)
-			if((cardCompare(2(i-1), 2(i-1)+2) = 1);
+			if((cardCompare(2(i-1), 2(i-1)+2, j) = 1);
 			{
-				flip();
+				flip(i,j);
 			}
 
 			Case(2)
-			if(cardCompare(i,i+1) = 1)
+			if(cardCompare(i,i+1, j) = 1)
 			{
-				flip();
+				flip(i,j);
 			}
 		}
 	}
+}
+
+function flip( j)
+{
+	var rowArray = peaks[i];
+	
+	rowArray[j].active = 0;
+	
+	
 }
 
 
