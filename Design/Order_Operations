@@ -1,20 +1,19 @@
 Start 
   Play button
-    Creates and shuffles the deck
-      Stack for deck
-      Stack for trash
-      Shuffle fuction on deck stack
+    Creates and shuffles the deck+
+      Stack for deck+
+      Stack for trash+
+      Shuffle fuction on deck stack+
     Creates the peaks
-      Consider peaks as Four arrays
-        Bottom, LowerMid, UpperMid, Top
-        Assign lengths independently
-    Populates peaks
-      Take from the deck stack and deal to each array
+      Consider peaks as arbitrary numbers
+        Use modulo division to handle the logic
+    Populates peaks+
+      Take from the deck stack and deal to each array+
     Burns one card to trash pile
-    Rest sit in deck stack
+    Rest sit in deck stack+
     
   In play
-    Click function
+    Click function+
       On card in peak
         Tests if playable
           If playable, plays
@@ -22,5 +21,5 @@ Start
           If not, does nothing
       On deck
         Adds card to trash pile
-        Becomes active card
+          Becomes active card
     
