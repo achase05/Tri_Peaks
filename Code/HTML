@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tri Peaks Solitaire</title>
+		<link rel="stylesheet" type="text/css" href="tri_peaks_css.css">
+		<script src="tri_peaks_jscript.js"></script>
+	</head>
+	
+	<body>
+		<div id="button_div"><button id="play_button" onclick="play()">Play</button></div>
+	</body>
+</html>
