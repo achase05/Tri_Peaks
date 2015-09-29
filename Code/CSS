@@ -1,1 +1,15 @@
+div {
+	color: blue;
+	margin: auto;
+}
 
+p {
+	font-size: 20px;
+}
+
+.card {
+	height: 60px;
+	width: 40px;
+	position: static;
+	
+}
