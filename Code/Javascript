@@ -1,1 +1,148 @@
+var cardArray = new Array();
+
+//cardArray[0] = "2_of_hearts.png";
+cardArray[0] = {url: "ace_of_hearts.png", rank: 2, compNum: null};
+cardArray[1] = {url: "2_of_hearts.png", rank: 3, compNum: null};
+cardArray[2] = {url: "3_of_hearts.png", rank: 3, compNum: null};
+cardArray[3] = {url: "4_of_hearts.png", rank: 3, compNum: null};
+cardArray[4] = {url: "5_of_hearts.png", rank: 3, compNum: null};
+cardArray[5] = {url: "6_of_hearts.png", rank: 3, compNum: null};
+cardArray[6] = {url: "7_of_hearts.png", rank: 3, compNum: null};
+cardArray[7] = {url: "8_of_hearts.png", rank: 3, compNum: null};
+cardArray[8] = {url: "9_of_hearts.png", rank: 3, compNum: null};
+cardArray[9] = {url: "10_of_hearts.png", rank: 3, compNum: null};
+cardArray[10] = {url: "jack_of_hearts2.png", rank: 3, compNum: null};
+cardArray[11] = {url: "queen_of_hearts2.png", rank: 3, compNum: null};
+cardArray[12] = {url: "king_of_hearts2.png", rank: 3, compNum: null};
+cardArray[13] = {url: "ace_of_clubs.png", rank: 3, compNum: null};
+cardArray[14] = {url: "2_of_clubs.png", rank: 3, compNum: null};
+cardArray[15] = {url: "3_of_clubs.png", rank: 3, compNum: null};
+cardArray[16] = {url: "4_of_clubs.png", rank: 3, compNum: null};
+cardArray[17] = {url: "5_of_clubs.png", rank: 3, compNum: null};
+cardArray[18] = {url: "6_of_clubs.png", rank: 3, compNum: null};
+cardArray[19] = {url: "7_of_clubs.png", rank: 3, compNum: null};
+cardArray[20] = {url: "8_of_clubs.png", rank: 3, compNum: null};
+cardArray[21] = {url: "9_of_clubs.png", rank: 3, compNum: null};
+cardArray[22] = {url: "10_of_clubs.png", rank: 3, compNum: null};
+cardArray[23] = {url: "jack_of_clubs2.png", rank: 3, compNum: null};
+cardArray[24] = {url: "queen_of_clubs2.png", rank: 3, compNum: null};
+cardArray[25] = {url: "king_of_clubs2.png", rank: 3, compNum: null};
+cardArray[26] = {url: "ace_of_diamonds.png", rank: 3, compNum: null};
+cardArray[27] = {url: "2_of_diamonds.png", rank: 3, compNum: null};
+cardArray[28] = {url: "3_of_diamonds.png", rank: 3, compNum: null};
+cardArray[29] = {url: "4_of_diamonds.png", rank: 3, compNum: null};
+cardArray[30] = {url: "5_of_diamonds.png", rank: 3, compNum: null};
+cardArray[31] = {url: "6_of_diamonds.png", rank: 3, compNum: null};
+cardArray[32] = {url: "7_of_diamonds.png", rank: 3, compNum: null};
+cardArray[33] = {url: "8_of_diamonds.png", rank: 3, compNum: null};
+cardArray[34] = {url: "9_of_diamonds.png", rank: 3, compNum: null};
+cardArray[35] = {url: "10_of_diamonds.png", rank: 3, compNum: null};
+cardArray[36] = {url: "jack_of_diamonds2.png", rank: 3, compNum: null};
+cardArray[37] = {url: "queen_of_diamonds2.png", rank: 3, compNum: null};
+cardArray[38] = {url: "king_of_diamonds2.png", rank: 3, compNum: null};
+cardArray[39] = {url: "ace_of_spades.png", rank: 3, compNum: null};
+cardArray[40] = {url: "2_of_spades.png", rank: 3, compNum: null};
+cardArray[41] = {url: "3_of_spades.png", rank: 3, compNum: null};
+cardArray[42] = {url: "4_of_spades.png", rank: 3, compNum: null};
+cardArray[43] = {url: "5_of_spades.png", rank: 3, compNum: null};
+cardArray[44] = {url: "6_of_spades.png", rank: 3, compNum: null};
+cardArray[45] = {url: "7_of_spades.png", rank: 3, compNum: null};
+cardArray[46] = {url: "8_of_spades.png", rank: 3, compNum: null};
+cardArray[47] = {url: "9_of_spades.png", rank: 3, compNum: null};
+cardArray[48] = {url: "10_of_spades.png", rank: 3, compNum: null};
+cardArray[49] = {url: "jack_of_spades2.png", rank: 3, compNum: null};
+cardArray[50] = {url: "queen_of_spades2.png", rank: 3, compNum: null};
+cardArray[51] = {url: "king_of_spades2.png", rank: 3, compNum: null};
+
+//..............Game Functions.............//
+
+//Takes deck of sorted cards, deals cards, and removes the play button
+function play()
+{
+	var button = document.getElementById("play_button");
+	
+	var i;
+	var j;
+	var count = 0;
+	
+	//Bottom row
+	var x_co = 11;
+	var y_co = 220;
+	
+	for (i = 0; i <= 9; i++) {
+		var img = document.createElement("img");
+		img.src = cardArray[i].url;
+		img.setAttribute("class", "card");
+		img.style.position = "absolute";
+		img.style.left = x_co+'px';
+		img.style.top = y_co+'px';
+		
+		x_co = x_co+51;
+		
+		document.body.appendChild(img);
+	}
+	
+	//Second row from bottom
+	x_co = 37;
+	y_co = 150;
+	
+	for (i = 10; i <= 18; i++) {
+		var img = document.createElement("img");
+		img.src = cardArray[i].url;
+		img.setAttribute("class", "card");
+		img.style.position = "absolute";
+		img.style.left = x_co+'px';
+		img.style.top = y_co+'px';
+		
+		x_co = x_co+51;
+		
+		document.body.appendChild(img);
+	}
+	
+	//Third row from bottom
+	x_co = 63;
+	y_co = 80;
+	
+	for (i = 19; i <= 24; i++) {
+		var img = document.createElement("img");
+		img.src = cardArray[i].url;
+		img.setAttribute("class", "card");
+		img.style.position = "absolute";
+		img.style.left = x_co+'px';
+		img.style.top = y_co+'px';
+		
+		x_co = x_co+51;
+		
+		document.body.appendChild(img);
+		
+		count++;
+		
+		if(count % 2 == 0)
+			x_co = x_co + 51;
+	}
+	
+	//Top row
+	x_co = 89;
+	y_co = 10;
+	
+	for (i = 25; i <= 27; i++) {
+		var img = document.createElement("img");
+		img.src = cardArray[i].url;
+		img.setAttribute("class", "card");
+		img.style.position = "absolute";
+		img.style.left = x_co+'px';
+		img.style.top = y_co+'px';
+		
+		x_co = x_co+51;
+		
+		document.body.appendChild(img);
+		
+		count++;
+		
+		if(count % 1 == 0)
+			x_co = x_co + 102;
+	}
+	
+	button.parentNode.removeChild(button);
+}
 
