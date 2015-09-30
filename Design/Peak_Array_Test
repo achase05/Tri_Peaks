@@ -27,13 +27,32 @@ for(int i = 0; i<peaks.length; i++)
 var trashDeck = Stack();
 
 
-ffunction cardCompare(leftChild, rightChild, peaksIndex)
+function cardCompare(compNum)
 {
-	var layerArray = peaks[peaksIndex];
-	if(layerArray[leftChild].active == 0 || layerArray[rightChild].active == 0)
+	var compHolder = compNum;
+	
+
+	
+	if(Math.floor(compNum/10 == 3))
 	{
-		return 1;
+	switch(Math.floor(compNum / 3))
+	case(0):
+		if(cardCompare(
+	
 	}
+	else{
+		if(Math.floor(compNum/10) == 4)
+		{
+			return true
+		}
+		else if(cardCompare(compNum % 10 + Math.floor(compNum / 10)*10 + 10) == true && cardCompare(compNum % 10 + Math.floor(compNum/10)*10 + 11) == true)
+		{
+			f
+		}
+		
+	}
+	
+	
 	
 }
 
