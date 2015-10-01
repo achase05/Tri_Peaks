@@ -1,0 +1,90 @@
+function isPlayable(clickedCard)
+{
+	switch(clickedCard.rank)
+	case 1:
+	if(trash[trash.length-1].rank == 13 || trash[trash.length-1].rank == 2)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	case 2:
+	if(trash[trash.length-1].rank == 1 || trash[trash.length-1].rank == 3);
+	{
+		playCard(clickedCard)
+	}
+	break;
+	case 3:
+	if(trash[trash.length-1].rank == 2 || trash[trash.length-1].rank == 3)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	case 4:
+	if(trash[trash.length-1].rank == 3 || trash[trash.length-1].rank == 4)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	case 5:
+	if(trash[trash.length-1].rank == 4 || trash[trash.length-1].rank == 6)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	case 6:
+	if(trash[trash.length-1].rank == 5 || trash[trash.length-1].rank == 7)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 7:
+	if(trash[trash.length-1].rank == 6 || trash[trash.length-1].rank == 8)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 8:
+	if(trash[trash.length-1].rank == 7 || trash[trash.length-1].rank == 9)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 9:
+	if(trash[trash.length-1].rank == 8 || trash[trash.length-1].rank == 10)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 10:
+	if(trash[trash.length-1].rank == 9 ||trash[trash.length-1].rank == 11)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 11:
+	if(trash[trash.length-1].rank == 10 || trash[trash.length-1].rank == 12
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 12:
+	if(trash[trash.length-1].rank==11 || trash[trash.length-1].rank ==13
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+	case 12:
+	if(trash[trash.length-1].rank == 12 || trash[trash.length-1].rank ==1)
+	{
+		playCard(clickedCard)
+	}
+	break;
+	
+}
