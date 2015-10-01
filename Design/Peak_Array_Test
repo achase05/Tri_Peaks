@@ -27,7 +27,7 @@ for(int i = 0; i<peaks.length; i++)
 var trashDeck = Stack();
 
 
-function cardCompare(compNum)
+function cardCompare(card)
 {
 	var compHolder = compNum;
 	
