@@ -89,13 +89,6 @@ function flipCheck()
 	}
 }
 
-function flip(i,j)
-{
-	var rowArray = peaks[i];
-	
-	rowArray[j].active = 0;
-	
-	
-}
+
 
 
