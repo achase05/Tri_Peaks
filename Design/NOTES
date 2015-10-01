@@ -1,0 +1,6 @@
+Use the Array delete method to check off CardCompare function.
+
+if(A[foo] == undefined and A[fum] == undfined)
+{
+FLIP
+}
