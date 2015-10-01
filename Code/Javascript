@@ -1,148 +1,229 @@
-var cardArray = new Array();
+var cardArray = new Array(52);//Array of custom card objects
+var img = new Array(52);//Array of image items that display cards
+var deck = new Array(52);//Deck of cards
+var trash = new Array(52);//Discard pile where the top card is the playable card
+var drawDeck= new Array(24);
+var playDeck = new Array(28);
 
-//cardArray[0] = "2_of_hearts.png";
-cardArray[0] = {url: "ace_of_hearts.png", rank: 2, compNum: null};
-cardArray[1] = {url: "2_of_hearts.png", rank: 3, compNum: null};
+//Creation of all the custom objects that contain testing and dealing values
+cardArray[0] = {url: "ace_of_hearts.png", rank: 1, compNum: null};
+cardArray[1] = {url: "2_of_hearts.png", rank: 2, compNum: null};
 cardArray[2] = {url: "3_of_hearts.png", rank: 3, compNum: null};
-cardArray[3] = {url: "4_of_hearts.png", rank: 3, compNum: null};
-cardArray[4] = {url: "5_of_hearts.png", rank: 3, compNum: null};
-cardArray[5] = {url: "6_of_hearts.png", rank: 3, compNum: null};
-cardArray[6] = {url: "7_of_hearts.png", rank: 3, compNum: null};
-cardArray[7] = {url: "8_of_hearts.png", rank: 3, compNum: null};
-cardArray[8] = {url: "9_of_hearts.png", rank: 3, compNum: null};
-cardArray[9] = {url: "10_of_hearts.png", rank: 3, compNum: null};
-cardArray[10] = {url: "jack_of_hearts2.png", rank: 3, compNum: null};
-cardArray[11] = {url: "queen_of_hearts2.png", rank: 3, compNum: null};
-cardArray[12] = {url: "king_of_hearts2.png", rank: 3, compNum: null};
-cardArray[13] = {url: "ace_of_clubs.png", rank: 3, compNum: null};
-cardArray[14] = {url: "2_of_clubs.png", rank: 3, compNum: null};
+cardArray[3] = {url: "4_of_hearts.png", rank: 4, compNum: null};
+cardArray[4] = {url: "5_of_hearts.png", rank: 5, compNum: null};
+cardArray[5] = {url: "6_of_hearts.png", rank: 6, compNum: null};
+cardArray[6] = {url: "7_of_hearts.png", rank: 7, compNum: null};
+cardArray[7] = {url: "8_of_hearts.png", rank: 8, compNum: null};
+cardArray[8] = {url: "9_of_hearts.png", rank: 9, compNum: null};
+cardArray[9] = {url: "10_of_hearts.png", rank: 10, compNum: null};
+cardArray[10] = {url: "jack_of_hearts2.png", rank: 11, compNum: null};
+cardArray[11] = {url: "queen_of_hearts2.png", rank: 12, compNum: null};
+cardArray[12] = {url: "king_of_hearts2.png", rank: 13, compNum: null};
+cardArray[13] = {url: "ace_of_clubs.png", rank: 1, compNum: null};
+cardArray[14] = {url: "2_of_clubs.png", rank: 2, compNum: null};
 cardArray[15] = {url: "3_of_clubs.png", rank: 3, compNum: null};
-cardArray[16] = {url: "4_of_clubs.png", rank: 3, compNum: null};
-cardArray[17] = {url: "5_of_clubs.png", rank: 3, compNum: null};
-cardArray[18] = {url: "6_of_clubs.png", rank: 3, compNum: null};
-cardArray[19] = {url: "7_of_clubs.png", rank: 3, compNum: null};
-cardArray[20] = {url: "8_of_clubs.png", rank: 3, compNum: null};
-cardArray[21] = {url: "9_of_clubs.png", rank: 3, compNum: null};
-cardArray[22] = {url: "10_of_clubs.png", rank: 3, compNum: null};
-cardArray[23] = {url: "jack_of_clubs2.png", rank: 3, compNum: null};
-cardArray[24] = {url: "queen_of_clubs2.png", rank: 3, compNum: null};
-cardArray[25] = {url: "king_of_clubs2.png", rank: 3, compNum: null};
-cardArray[26] = {url: "ace_of_diamonds.png", rank: 3, compNum: null};
-cardArray[27] = {url: "2_of_diamonds.png", rank: 3, compNum: null};
+cardArray[16] = {url: "4_of_clubs.png", rank: 4, compNum: null};
+cardArray[17] = {url: "5_of_clubs.png", rank: 5, compNum: null};
+cardArray[18] = {url: "6_of_clubs.png", rank: 6, compNum: null};
+cardArray[19] = {url: "7_of_clubs.png", rank: 7, compNum: null};
+cardArray[20] = {url: "8_of_clubs.png", rank: 8, compNum: null};
+cardArray[21] = {url: "9_of_clubs.png", rank: 9, compNum: null};
+cardArray[22] = {url: "10_of_clubs.png", rank: 10, compNum: null};
+cardArray[23] = {url: "jack_of_clubs2.png", rank: 11, compNum: null};
+cardArray[24] = {url: "queen_of_clubs2.png", rank: 12, compNum: null};
+cardArray[25] = {url: "king_of_clubs2.png", rank: 13, compNum: null};
+cardArray[26] = {url: "ace_of_diamonds.png", rank: 1, compNum: null};
+cardArray[27] = {url: "2_of_diamonds.png", rank: 2, compNum: null};
 cardArray[28] = {url: "3_of_diamonds.png", rank: 3, compNum: null};
-cardArray[29] = {url: "4_of_diamonds.png", rank: 3, compNum: null};
-cardArray[30] = {url: "5_of_diamonds.png", rank: 3, compNum: null};
-cardArray[31] = {url: "6_of_diamonds.png", rank: 3, compNum: null};
-cardArray[32] = {url: "7_of_diamonds.png", rank: 3, compNum: null};
-cardArray[33] = {url: "8_of_diamonds.png", rank: 3, compNum: null};
-cardArray[34] = {url: "9_of_diamonds.png", rank: 3, compNum: null};
-cardArray[35] = {url: "10_of_diamonds.png", rank: 3, compNum: null};
-cardArray[36] = {url: "jack_of_diamonds2.png", rank: 3, compNum: null};
-cardArray[37] = {url: "queen_of_diamonds2.png", rank: 3, compNum: null};
-cardArray[38] = {url: "king_of_diamonds2.png", rank: 3, compNum: null};
-cardArray[39] = {url: "ace_of_spades.png", rank: 3, compNum: null};
-cardArray[40] = {url: "2_of_spades.png", rank: 3, compNum: null};
+cardArray[29] = {url: "4_of_diamonds.png", rank: 4, compNum: null};
+cardArray[30] = {url: "5_of_diamonds.png", rank: 5, compNum: null};
+cardArray[31] = {url: "6_of_diamonds.png", rank: 6, compNum: null};
+cardArray[32] = {url: "7_of_diamonds.png", rank: 7, compNum: null};
+cardArray[33] = {url: "8_of_diamonds.png", rank: 8, compNum: null};
+cardArray[34] = {url: "9_of_diamonds.png", rank: 9, compNum: null};
+cardArray[35] = {url: "10_of_diamonds.png", rank: 10, compNum: null};
+cardArray[36] = {url: "jack_of_diamonds2.png", rank: 11, compNum: null};
+cardArray[37] = {url: "queen_of_diamonds2.png", rank: 12, compNum: null};
+cardArray[38] = {url: "king_of_diamonds2.png", rank: 13, compNum: null};
+cardArray[39] = {url: "ace_of_spades.png", rank: 1, compNum: null};
+cardArray[40] = {url: "2_of_spades.png", rank: 2, compNum: null};
 cardArray[41] = {url: "3_of_spades.png", rank: 3, compNum: null};
-cardArray[42] = {url: "4_of_spades.png", rank: 3, compNum: null};
-cardArray[43] = {url: "5_of_spades.png", rank: 3, compNum: null};
-cardArray[44] = {url: "6_of_spades.png", rank: 3, compNum: null};
-cardArray[45] = {url: "7_of_spades.png", rank: 3, compNum: null};
-cardArray[46] = {url: "8_of_spades.png", rank: 3, compNum: null};
-cardArray[47] = {url: "9_of_spades.png", rank: 3, compNum: null};
-cardArray[48] = {url: "10_of_spades.png", rank: 3, compNum: null};
-cardArray[49] = {url: "jack_of_spades2.png", rank: 3, compNum: null};
-cardArray[50] = {url: "queen_of_spades2.png", rank: 3, compNum: null};
-cardArray[51] = {url: "king_of_spades2.png", rank: 3, compNum: null};
+cardArray[42] = {url: "4_of_spades.png", rank: 4, compNum: null};
+cardArray[43] = {url: "5_of_spades.png", rank: 5, compNum: null};
+cardArray[44] = {url: "6_of_spades.png", rank: 6, compNum: null};
+cardArray[45] = {url: "7_of_spades.png", rank: 7, compNum: null};
+cardArray[46] = {url: "8_of_spades.png", rank: 8, compNum: null};
+cardArray[47] = {url: "9_of_spades.png", rank: 9, compNum: null};
+cardArray[48] = {url: "10_of_spades.png", rank: 10, compNum: null};
+cardArray[49] = {url: "jack_of_spades2.png", rank: 11, compNum: null};
+cardArray[50] = {url: "queen_of_spades2.png", rank: 12, compNum: null};
+cardArray[51] = {url: "king_of_spades2.png", rank: 13, compNum: null};
+
+deck = shuffleDeck(cardArray); //return a shuffled array
+
+for (i = 0; i <= 52; i++) {
+		img[i] = document.createElement("img");
+		img[i].src = deck[i].url;
+		img[i].setAttribute("class", "card");
+	}
+	
+inPlayDeck = makePlayDeck(img);
 
 //..............Game Functions.............//
 
 //Takes deck of sorted cards, deals cards, and removes the play button
 function play()
 {
-	var button = document.getElementById("play_button");
+	var button = document.getElementById("play_div");
 	
 	var i;
 	var j;
 	var count = 0;
+	var x_co;//x-coordinate value
+	var y_co;//y-coordinate value
+	var comp;//number used to compare for flipping
 	
-	//Bottom row
-	var x_co = 11;
-	var y_co = 220;
+	
+	//...............Dealing Algorithm...................
+	//Each one of the following loops gives each image in the img array
+	//a src, sets its attributes equal to that of the .card CSS class,
+	//sets and increments its positioning, and the appends the image to
+	//the webpage.
+	
+	
+	//Bottom row deal
+	x_co = 10;
+	y_co = 251;
+	comp = 11;
 	
 	for (i = 0; i <= 9; i++) {
-		var img = document.createElement("img");
-		img.src = cardArray[i].url;
-		img.setAttribute("class", "card");
-		img.style.position = "absolute";
-		img.style.left = x_co+'px';
-		img.style.top = y_co+'px';
 		
-		x_co = x_co+51;
+		deck[i].compNum = comp;
+		img[i] = document.createElement("img");
+		img[i].src = deck[i].url;
+		img[i].setAttribute("class", "card");
+		img[i].style.position = "absolute";
+		img[i].style.left = x_co+'px';
+		img[i].style.top = y_co+'px';
 		
-		document.body.appendChild(img);
+		x_co = x_co+60;
+		comp++;
+		
+		document.getElementById('layout').appendChild(img[i]);
 	}
 	
 	//Second row from bottom
-	x_co = 37;
-	y_co = 150;
+	x_co = 41;
+	y_co = 171;
 	
 	for (i = 10; i <= 18; i++) {
-		var img = document.createElement("img");
-		img.src = cardArray[i].url;
-		img.setAttribute("class", "card");
-		img.style.position = "absolute";
-		img.style.left = x_co+'px';
-		img.style.top = y_co+'px';
+		img[i] = document.createElement("img");
+		img[i].src = deck[i].url;
+		img[i].setAttribute("class", "card");
+		img[i].style.position = "absolute";
+		img[i].style.left = x_co+'px';
+		img[i].style.top = y_co+'px';
 		
-		x_co = x_co+51;
+		x_co = x_co+60;
 		
-		document.body.appendChild(img);
+		document.getElementById('layout').appendChild(img[i]);
 	}
 	
 	//Third row from bottom
-	x_co = 63;
-	y_co = 80;
+	x_co = 71;
+	y_co = 91;
 	
 	for (i = 19; i <= 24; i++) {
-		var img = document.createElement("img");
-		img.src = cardArray[i].url;
-		img.setAttribute("class", "card");
-		img.style.position = "absolute";
-		img.style.left = x_co+'px';
-		img.style.top = y_co+'px';
+		img[i] = document.createElement("img");
+		img[i].src = deck[i].url;
+		img[i].setAttribute("class", "card");
+		img[i].style.position = "absolute";
+		img[i].style.left = x_co+'px';
+		img[i].style.top = y_co+'px';
 		
-		x_co = x_co+51;
+		x_co = x_co+60;
 		
-		document.body.appendChild(img);
+		document.getElementById('layout').appendChild(img[i]);
 		
 		count++;
 		
+		//Creates spacing after every 2 cards
 		if(count % 2 == 0)
-			x_co = x_co + 51;
+			x_co = x_co + 60;
 	}
 	
 	//Top row
-	x_co = 89;
-	y_co = 10;
+	x_co = 101;
+	y_co = 11;
 	
 	for (i = 25; i <= 27; i++) {
-		var img = document.createElement("img");
-		img.src = cardArray[i].url;
-		img.setAttribute("class", "card");
-		img.style.position = "absolute";
-		img.style.left = x_co+'px';
-		img.style.top = y_co+'px';
+		img[i] = document.createElement("img");
+		img[i].src = deck[i].url;
+		img[i].setAttribute("class", "card");
+		img[i].style.position = "absolute";
+		img[i].style.left = x_co+'px';
+		img[i].style.top = y_co+'px';
 		
-		x_co = x_co+51;
+		x_co = x_co+60;
 		
-		document.body.appendChild(img);
+		document.getElementById('layout').appendChild(img[i]);
 		
 		count++;
 		
-		if(count % 1 == 0)
-			x_co = x_co + 102;
+		x_co = x_co + 120;
 	}
 	
+	//Removes the play button
 	button.parentNode.removeChild(button);
 }
 
+//Shuffles deck
+function shuffleDeck(arr) {
+	
+	var temp;
+	var i, k;
+	
+	for(i = 0; i < arr.length; i++)
+	{
+		//Math.random() chooses a number between 0 (inclusive) and 1 (exclusive)
+		//This ensures that the floor of multiplying Math.random will never be
+		//equal to, or greater than the length of the array
+		k = Math.floor(Math.random() * arr.length);
+		temp = arr[i];
+		arr[i] = arr[k];
+		arr[k] = temp;
+	}
+	
+	return arr;
+}
+
+function makePlayDeck(arr) {
+	var i;
+	var newArr = new Array(28);
+	
+	for(i = 0; i < 28; i++)
+	{
+		newArr[i] = arr[i];
+	}
+	
+	return newArr;	
+}
+
+function makeDrawDeck(arr) {
+	
+}
+
+function makeTrashDeck(arr) {
+	
+}
+
+function dealCard() {
+	
+	var currCard;
+	
+	currCard = document.createElement("img");
+	currCard.src = deck[28].url;
+	currCard.setAttribute("class", "card");
+	
+	document.getElementById('trash').appendChild(currCard);
+}
