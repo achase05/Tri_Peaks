@@ -28,6 +28,23 @@
 	left: 260px;
 }
 
+#replay_div {
+	background-color: #000080;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #47a3ff;
+	border-radius: 15px;
+	text-align: center;
+	font-family: Impact;
+	font-size: 50px;
+	color: #47a3ff;
+	height: 60px;
+	width: 100px;
+	position: absolute;
+	top: 270px;
+	left: 300px;
+}
+
 #deck_div {
 	position: absolute;
 	top: 350px;
