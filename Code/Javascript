@@ -1,9 +1,10 @@
 var cardArray = new Array(52);//Array of custom card objects
 var img = new Array(52);//Array of image items that display cards
-var deck = new Array(52);//Deck of cards
-var trash = new Array(52);//Discard pile where the top card is the playable card
+var deck = new Array(52);//Deck of shuffled cardArray information
+var trash = new Array();//Discard pile where the top card is the playable card
 var drawDeck= new Array(24);
 var playDeck = new Array(28);
+var winNum = 0;
 
 //Creation of all the custom objects that contain testing and dealing values
 cardArray[0] = {url: "ace_of_hearts.png", rank: 1, compNum: null};
@@ -60,14 +61,8 @@ cardArray[50] = {url: "queen_of_spades2.png", rank: 12, compNum: null};
 cardArray[51] = {url: "king_of_spades2.png", rank: 13, compNum: null};
 
 deck = shuffleDeck(cardArray); //return a shuffled array
-
-for (i = 0; i <= 52; i++) {
-		img[i] = document.createElement("img");
-		img[i].src = deck[i].url;
-		img[i].setAttribute("class", "card");
-	}
-	
-inPlayDeck = makePlayDeck(img);
+makePlayDeck(); //creates deck of cards for placement on table
+makeDrawDeck(); //creates the deck for drawing cards
 
 //..............Game Functions.............//
 
@@ -97,19 +92,15 @@ function play()
 	comp = 11;
 	
 	for (i = 0; i <= 9; i++) {
-		
 		deck[i].compNum = comp;
-		img[i] = document.createElement("img");
-		img[i].src = deck[i].url;
-		img[i].setAttribute("class", "card");
-		img[i].style.position = "absolute";
-		img[i].style.left = x_co+'px';
-		img[i].style.top = y_co+'px';
+		playDeck[i].style.position = "absolute";
+		playDeck[i].style.left = x_co+'px';
+		playDeck[i].style.top = y_co+'px';
 		
 		x_co = x_co+60;
 		comp++;
 		
-		document.getElementById('layout').appendChild(img[i]);
+		document.getElementById('layout').appendChild(playDeck[i]);
 	}
 	
 	//Second row from bottom
@@ -117,16 +108,13 @@ function play()
 	y_co = 171;
 	
 	for (i = 10; i <= 18; i++) {
-		img[i] = document.createElement("img");
-		img[i].src = deck[i].url;
-		img[i].setAttribute("class", "card");
-		img[i].style.position = "absolute";
-		img[i].style.left = x_co+'px';
-		img[i].style.top = y_co+'px';
+		playDeck[i].style.position = "absolute";
+		playDeck[i].style.left = x_co+'px';
+		playDeck[i].style.top = y_co+'px';
 		
 		x_co = x_co+60;
 		
-		document.getElementById('layout').appendChild(img[i]);
+		document.getElementById('layout').appendChild(playDeck[i]);
 	}
 	
 	//Third row from bottom
@@ -134,16 +122,13 @@ function play()
 	y_co = 91;
 	
 	for (i = 19; i <= 24; i++) {
-		img[i] = document.createElement("img");
-		img[i].src = deck[i].url;
-		img[i].setAttribute("class", "card");
-		img[i].style.position = "absolute";
-		img[i].style.left = x_co+'px';
-		img[i].style.top = y_co+'px';
+		playDeck[i].style.position = "absolute";
+		playDeck[i].style.left = x_co+'px';
+		playDeck[i].style.top = y_co+'px';
 		
 		x_co = x_co+60;
 		
-		document.getElementById('layout').appendChild(img[i]);
+		document.getElementById('layout').appendChild(playDeck[i]);
 		
 		count++;
 		
@@ -157,16 +142,13 @@ function play()
 	y_co = 11;
 	
 	for (i = 25; i <= 27; i++) {
-		img[i] = document.createElement("img");
-		img[i].src = deck[i].url;
-		img[i].setAttribute("class", "card");
-		img[i].style.position = "absolute";
-		img[i].style.left = x_co+'px';
-		img[i].style.top = y_co+'px';
+		playDeck[i].style.position = "absolute";
+		playDeck[i].style.left = x_co+'px';
+		playDeck[i].style.top = y_co+'px';
 		
 		x_co = x_co+60;
 		
-		document.getElementById('layout').appendChild(img[i]);
+		document.getElementById('layout').appendChild(playDeck[i]);
 		
 		count++;
 		
@@ -197,33 +179,321 @@ function shuffleDeck(arr) {
 	return arr;
 }
 
-function makePlayDeck(arr) {
+function makePlayDeck() {
 	var i;
-	var newArr = new Array(28);
+	var j = 5;
 	
-	for(i = 0; i < 28; i++)
-	{
-		newArr[i] = arr[i];
+	for (i = 0; i <= 27; i++) {
+		playDeck[i] = document.createElement("img");
+		playDeck[i].src = deck[i].url;
+		playDeck[i].setAttribute("class", "card");
 	}
 	
-	return newArr;	
+	assignClickEvent();
 }
 
-function makeDrawDeck(arr) {
+function assignClickEvent(){
+	var i0 = 0;
+	playDeck[0].addEventListener('click', function(){isPlayable(i0)}, false);
 	
+	var i1 = 1;
+	playDeck[1].addEventListener('click', function(){isPlayable(i1)}, false);
+	
+	var i2 = 2;
+	playDeck[2].addEventListener('click', function(){isPlayable(i2)}, false);
+	
+	var i3 = 3;
+	playDeck[3].addEventListener('click', function(){isPlayable(i3)}, false);
+	
+	var i4 = 4;
+	playDeck[4].addEventListener('click', function(){isPlayable(i4)}, false);
+	
+	var i5 = 5;
+	playDeck[5].addEventListener('click', function(){isPlayable(i5)}, false);
+	
+	var i6 = 6;
+	playDeck[6].addEventListener('click', function(){isPlayable(i6)}, false);
+	
+	var i7 = 7;
+	playDeck[7].addEventListener('click', function(){isPlayable(i7)}, false);
+	
+	var i8 = 8;
+	playDeck[8].addEventListener('click', function(){isPlayable(i8)}, false);
+	
+	var i9 = 9;
+	playDeck[9].addEventListener('click', function(){isPlayable(i9)}, false);
+	
+	var i10 = 10;
+	playDeck[10].addEventListener('click', function(){isPlayable(i10)}, false);
+	
+	var i11 = 11;
+	playDeck[11].addEventListener('click', function(){isPlayable(i11)}, false);
+	
+	var i12 = 12;
+	playDeck[12].addEventListener('click', function(){isPlayable(i12)}, false);
+	
+	var i13 = 13;
+	playDeck[13].addEventListener('click', function(){isPlayable(i13)}, false);
+	
+	var i14 = 14;
+	playDeck[14].addEventListener('click', function(){isPlayable(i14)}, false);
+	
+	var i15 = 15;
+	playDeck[15].addEventListener('click', function(){isPlayable(i15)}, false);
+	
+	var i16 = 16;
+	playDeck[16].addEventListener('click', function(){isPlayable(i16)}, false);
+	
+	var i17 = 17;
+	playDeck[17].addEventListener('click', function(){isPlayable(i17)}, false);
+	
+	var i18 = 18;
+	playDeck[18].addEventListener('click', function(){isPlayable(i18)}, false);
+	
+	var i19 = 19;
+	playDeck[19].addEventListener('click', function(){isPlayable(i19)}, false);
+	
+	var i20 = 20;
+	playDeck[20].addEventListener('click', function(){isPlayable(i20)}, false);
+	
+	var i21 = 21;
+	playDeck[21].addEventListener('click', function(){isPlayable(i21)}, false);
+	
+	var i22 = 22;
+	playDeck[22].addEventListener('click', function(){isPlayable(i22)}, false);
+	
+	var i23 = 23;
+	playDeck[23].addEventListener('click', function(){isPlayable(i23)}, false);
+	
+	var i24 = 24;
+	playDeck[24].addEventListener('click', function(){isPlayable(i24)}, false);
+	
+	var i25 = 25;
+	playDeck[25].addEventListener('click', function(){isPlayable(i25)}, false);
+	
+	var i26 = 26;
+	playDeck[26].addEventListener('click', function(){isPlayable(i26)}, false);
+	
+	var i27 = 27;
+	playDeck[27].addEventListener('click', function(){isPlayable(i27)}, false);
 }
 
-function makeTrashDeck(arr) {
+
+function makeDrawDeck() {
+	var i;
+	var j = 28;
 	
+	for (i = 0; i <= 27; i++) {
+		drawDeck[i] = deck[j];
+		j++;
+	}
 }
 
 function dealCard() {
 	
 	var currCard;
+	var o;
+	
+	o = deck.pop();
+	trash.push(o);
 	
 	currCard = document.createElement("img");
-	currCard.src = deck[28].url;
+	currCard.src = trash[trash.length-1].url;
 	currCard.setAttribute("class", "card");
+	currCard.style.position = "absolute";
+	currCard.style.top = 350+"px";
+	currCard.style.left = 150+"px";
 	
-	document.getElementById('trash').appendChild(currCard);
+	document.getElementById('table').appendChild(currCard);
+	
+	if (deck.length == 0)
+		document.getElementById('draw').style.display = 'none';
+}
+
+function isPlayable(deckVal) {
+	
+	var clickedRank = deck[deckVal].rank;
+	
+	switch(clickedRank){
+		
+		case 1:
+			if(trash[trash.length-1].rank == 13 || trash[trash.length-1].rank == 2)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 2:
+			if(trash[trash.length-1].rank == 1 || trash[trash.length-1].rank == 3)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 3:
+			if(trash[trash.length-1].rank == 2 || trash[trash.length-1].rank == 4)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 4:
+			if(trash[trash.length-1].rank == 3 || trash[trash.length-1].rank == 5)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 5:
+			if(trash[trash.length-1].rank == 4 || trash[trash.length-1].rank == 6)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 6:
+			if(trash[trash.length-1].rank == 5 || trash[trash.length-1].rank == 7)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 7:
+			if(trash[trash.length-1].rank == 6 || trash[trash.length-1].rank == 8)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+			
+		case 8:
+			if(trash[trash.length-1].rank == 7 || trash[trash.length-1].rank == 9)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 9:
+			if(trash[trash.length-1].rank == 8 || trash[trash.length-1].rank == 10)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 10:
+			if(trash[trash.length-1].rank == 9 || trash[trash.length-1].rank == 11)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 11:
+			if(trash[trash.length-1].rank == 10 || trash[trash.length-1].rank == 12)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 12:
+			if(trash[trash.length-1].rank == 11 || trash[trash.length-1].rank == 13)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;
+		
+		case 13:
+			if(trash[trash.length-1].rank == 12 || trash[trash.length-1].rank == 1)
+			{
+				playCard(deckVal);
+			}
+			else
+			{
+				alert("Invalid play");
+			}
+		
+			break;		
+	}
+}
+
+function playCard(val) {
+	var nextCard;
+	var o = deck[val];
+	
+	playDeck[val].parentNode.removeChild(playDeck[val]);
+	
+	trash.push(o);
+	nextCard = document.createElement("img");
+	nextCard.src = trash[trash.length-1].url;
+	nextCard.setAttribute("class", "card");
+	nextCard.style.position = "absolute";
+	nextCard.style.top = 350+"px";
+	nextCard.style.left = 150+"px";
+	
+	document.getElementById('table').appendChild(nextCard);
+	
+	winNum++;
+	
+	if(winNum == 28)
+	{
+		alert("YOU WIN!!! Refresh the page to play again!");
+	}
 }
