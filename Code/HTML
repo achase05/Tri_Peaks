@@ -15,7 +15,7 @@
 				<span>Play</span>
 			</div>
 			
-			<div id="play_div" onclick="replay()">
+			<div id="replay_div" onclick="replay()">
 				<span>Replay</span>
 			</div>
 			
