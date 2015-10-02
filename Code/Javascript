@@ -5,6 +5,8 @@ var trash = new Array();//Discard pile where the top card is the playable card
 var drawDeck= new Array(24);
 var playDeck = new Array(28);
 var winNum = 0;
+var score = 0;
+var scoreCounter = 0;
 
 //Creation of all the custom objects that contain testing and dealing values
 cardArray[0] = {url: "ace_of_hearts.png", rank: 1, compNum: null};
@@ -320,6 +322,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 13 || trash[trash.length-1].rank == 2)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -332,6 +335,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 1 || trash[trash.length-1].rank == 3)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -344,6 +348,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 2 || trash[trash.length-1].rank == 4)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -356,6 +361,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 3 || trash[trash.length-1].rank == 5)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -368,6 +374,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 4 || trash[trash.length-1].rank == 6)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -380,6 +387,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 5 || trash[trash.length-1].rank == 7)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -392,6 +400,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 6 || trash[trash.length-1].rank == 8)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -404,6 +413,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 7 || trash[trash.length-1].rank == 9)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -416,6 +426,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 8 || trash[trash.length-1].rank == 10)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -428,6 +439,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 9 || trash[trash.length-1].rank == 11)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -440,6 +452,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 10 || trash[trash.length-1].rank == 12)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -452,6 +465,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 11 || trash[trash.length-1].rank == 13)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
@@ -464,6 +478,7 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 12 || trash[trash.length-1].rank == 1)
 			{
 				playCard(deckVal);
+				scoreCounter++;
 			}
 			else
 			{
