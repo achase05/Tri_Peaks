@@ -5,8 +5,6 @@ var trash = new Array();//Discard pile where the top card is the playable card
 var drawDeck= new Array(24);
 var playDeck = new Array(28);
 var winNum = 0;
-var score = 0;
-var scoreCounter = 0;
 
 //Creation of all the custom objects that contain testing and dealing values
 cardArray[0] = {url: "ace_of_hearts.png", rank: 1, compNum: null};
@@ -63,16 +61,19 @@ cardArray[50] = {url: "queen_of_spades2.png", rank: 12, compNum: null};
 cardArray[51] = {url: "king_of_spades2.png", rank: 13, compNum: null};
 
 deck = shuffleDeck(cardArray); //return a shuffled array
-makePlayDeck(); //creates deck of cards for placement on table
-makeDrawDeck(); //creates the deck for drawing cards
+//makePlayDeck(); //creates deck of cards for placement on table
+//makeDrawDeck(); //creates the deck for drawing cards
 
 //..............Game Functions.............//
 
 //Takes deck of sorted cards, deals cards, and removes the play button
 function play()
 {
-	var button = document.getElementById("play_div");
+	makePlayDeck(); //creates deck of cards for placement on table
+	makeDrawDeck(); //creates the deck for drawing cards
+	gameTimer(); //starts timer
 	
+	var button = document.getElementById("play_div");
 	var i;
 	var j;
 	var count = 0;
@@ -161,6 +162,18 @@ function play()
 	button.parentNode.removeChild(button);
 }
 
+function replay() {
+	var node = document.getElementById('layout');
+	
+	if(node.hasChildNodes())
+	{
+		alert(node.childNodes[1].src);
+		node.removeChild(node.childNodes[1]);
+	}
+	
+	play();
+}
+
 //Shuffles deck
 function shuffleDeck(arr) {
 	
@@ -183,7 +196,6 @@ function shuffleDeck(arr) {
 
 function makePlayDeck() {
 	var i;
-	var j = 5;
 	
 	for (i = 0; i <= 27; i++) {
 		playDeck[i] = document.createElement("img");
@@ -322,7 +334,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 13 || trash[trash.length-1].rank == 2)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -335,7 +346,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 1 || trash[trash.length-1].rank == 3)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -348,7 +358,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 2 || trash[trash.length-1].rank == 4)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -361,7 +370,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 3 || trash[trash.length-1].rank == 5)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -374,7 +382,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 4 || trash[trash.length-1].rank == 6)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -387,7 +394,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 5 || trash[trash.length-1].rank == 7)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -400,7 +406,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 6 || trash[trash.length-1].rank == 8)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -413,7 +418,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 7 || trash[trash.length-1].rank == 9)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -426,7 +430,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 8 || trash[trash.length-1].rank == 10)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -439,7 +442,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 9 || trash[trash.length-1].rank == 11)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -452,7 +454,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 10 || trash[trash.length-1].rank == 12)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -465,7 +466,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 11 || trash[trash.length-1].rank == 13)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -478,7 +478,6 @@ function isPlayable(deckVal) {
 			if(trash[trash.length-1].rank == 12 || trash[trash.length-1].rank == 1)
 			{
 				playCard(deckVal);
-				scoreCounter++;
 			}
 			else
 			{
@@ -511,4 +510,30 @@ function playCard(val) {
 	{
 		alert("YOU WIN!!! Refresh the page to play again!");
 	}
+}
+
+function countdown(timeLeft, show){
+	var myTimer = timeLeft, minutes, seconds;
+	var currTime;
+	setInterval(function () {
+		minutes = parseInt(myTimer / 60, 10);
+		seconds = parseInt(myTimer % 60, 10);
+		
+		if(seconds < 10)
+		{
+			seconds = "0" + seconds;
+		}
+		
+		currTime = minutes + ":" + seconds;
+		show.textContent = currTime;
+		
+		myTimer -= 1;
+		
+	}, 1000);
+}
+
+ function gameTimer (){
+	var twoThirty = 60 * 2.5; 
+	var showTime = document.querySelector('#time'); 
+	countdown(twoThirty, showTime);
 }
