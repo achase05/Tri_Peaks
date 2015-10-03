@@ -11,16 +11,20 @@
 			<div id="layout">
 			</div>
 			
-			<div id="play_div" onclick="play(deckInPlay)">
+			<div id="play_div" onclick="play()">
 				<span>Play</span>
 			</div>
 			
-			<div id="replay_div" onclick="replay()">
+			<!--div id="replay_div" onclick="replay()">
 				<span>Replay</span>
-			</div>
+			</div-->
 			
 			<div id="deck_div">
 				<img id="draw" class="card" src="card_back.png" onclick="dealCard()"/>
+			</div>
+			
+			<div id="timer_div">
+				<span id = "time" align="center">2:30</span>
 			</div>
 			
 			<div id="trash">
