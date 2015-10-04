@@ -5,6 +5,9 @@ var trash = new Array();//Discard pile where the top card is the playable card
 var drawDeck= new Array(24);
 var playDeck = new Array(28);
 var winNum = 0;
+var scoreCounter = 0;
+var score = 0;
+var bonusScore = 20000;
 
 //Creation of all the custom objects that contain testing and dealing values
 cardArray[0] = {url: "ace_of_hearts.png", rank: 1, compNum: null};
@@ -307,6 +310,8 @@ function dealCard() {
 	
 	var currCard;
 	var o;
+	scoreCounter = 0; 
+	
 	
 	o = deck.pop();
 	trash.push(o);
@@ -509,6 +514,8 @@ function playCard(val) {
 	if(winNum == 28)
 	{
 		alert("YOU WIN!!! Refresh the page to play again!");
+		var totalScore = scoreTotal();
+		alert("Score:"+totalScore); //not sure if this part will work but I'm pretty hopeful
 	}
 }
 
@@ -528,6 +535,7 @@ function countdown(timeLeft, show){
 		show.textContent = currTime;
 		
 		myTimer -= 1;
+		bonusScore -= 200; //Decrementing of the bonus score
 		
 	}, 1000);
 }
@@ -536,4 +544,10 @@ function countdown(timeLeft, show){
 	var twoThirty = 60 * 2.5; 
 	var showTime = document.querySelector('#time'); 
 	countdown(twoThirty, showTime);
+}
+
+//Cleans it up a little, making it a function
+function scoreTotal()
+{
+	 return bonusScore + score; 
 }
