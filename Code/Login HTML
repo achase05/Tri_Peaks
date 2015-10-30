@@ -10,14 +10,16 @@
 
     <div class="login-card">
     <h1>Log-in</h1><br>
-  <form>
-    <input type="text" name="user" placeholder="Username">
-    <input type="password" name="pass" placeholder="Password">
-    <input type="submit" name="login" class="login login-submit" value="login">
+  <form >
+    <input type="text" name="user" placeholder="Username"><br>
+	
+    <input type="password" name="pass" placeholder="Password"><br>
+	
+    <input type="submit" name="login" class="login login-submit" value="login"><br>
   </form>
     
   <div class="login-help">
-    <a href="#">Register</a> • <a href="#">Forgot Password</a>
+    <a href="register.html">Register</a> • <a href="#">Forgot Password</a>
   </div>
 </div>
   
