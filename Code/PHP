@@ -1,8 +1,30 @@
-<?php
-$servername;
-$username;
-$password;
+// I'm not very sure on the PHP, this is a pretty rough guesstimate
 
-$conn = 
+<?php
+$tempUser = $_POST['user'];
+$tempPass = $_POST['pass'];
+$tempEmail = $_POST['email']
+
+$sql = "SELECT Users FROM Players WHERE Users LIKE" + $tempUser;
+$result = $conn -> query($sql);
+
+if($result != null)
+{
+	echo "Error, username already in use.";
+}
+else
+{
+	$sql = "SELECT Emails FROM Players WHERE Emails LIKE"+$tempEmail;
+	$result = $conn -> query($sql);
+}
+
+if($result != null)
+{
+	echo "Error, email already in use.";
+}
+else
+{
+	$sql = "Insert into Players Values ($tempUser,$tempPass,$tempEmail, 0000, 00:00)";
+}
 
 ?>
