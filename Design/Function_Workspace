@@ -1,1 +1,69 @@
+//AJAX opening and function call
+//We need a div called tableSpace to
+//put the tale on. 
 
+function showTopFive()
+{
+	var xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("tableSpace").innerHTML = xmlhttp.responseText;
+            }
+        }
+	xmlhttp.open("GET","getTopFive.php?q=",true)
+	xmlhttp.send;
+}
+
+//This is where it got a little nuts with the mysqli and such. 
+//Ths function really calls all over the place
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {text-align: left;}
+</style>
+</head>
+<body>
+
+
+<?php
+$sql = "SELECT * FROM Players ORDER BY highScore LIMIT 5";
+
+//change the arguments here, values are placeholders
+
+$con = mysqli_connect('localhost','user','password','database')
+$result = mysqli_query($con,$sql);
+
+//make the row headings correct in order
+echo "<table>
+<tr>
+<th>user</th>
+<th>numwins</th>
+<th>numgames</th>
+<th>highScore</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['user'] . "</td>";
+    echo "<td>" . $row['numwins'] . "</td>";
+    echo "<td>" . $row['numgames'] . "</td>";
+    echo "<td>" . $row['highScore'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+mysqli_close($con);
+?>
+
+</body>
+</html>
