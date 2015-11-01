@@ -1,0 +1,180 @@
+#table {
+	background-color: #006400;
+	position: absolute;
+	margin: auto;
+	height: 600px;
+	width: 1000px;
+}
+#layout {
+	position: absolute;
+	left: 200px;
+	top: 10px;
+}
+
+#play_div {
+	background-color: #000080;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #47a3ff;
+	border-radius: 15px;
+	text-align: center;
+	font-family: Impact;
+	font-size: 50px;
+	color: #47a3ff;
+	height: 60px;
+	width: 100px;
+	position: absolute;
+	top: 270px;
+	left: 450px;
+}
+
+#replay_div {
+	background-color: #000080;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #47a3ff;
+	border-radius: 15px;
+	text-align: center;
+	font-family: Impact;
+	font-size: 50px;
+	color: #47a3ff;
+	height: 60px;
+	width: 100px;
+	position: absolute;
+	top: 350px;
+	left: 300px;
+}
+
+#deck_div {
+	position: absolute;
+	top: 380px;
+	left: 390px;
+}
+
+#trash {
+	position: absolute;
+	top: 350px;
+	left: 470px;
+	height: 80px;
+	width: 60px;
+}
+
+#timer_div {
+	border-style: solid;
+	border-style: inset;
+	border-color: #ffff00;
+	border-width: 5px;
+	background-color: #ffff00;
+	text-align: center;
+	position: absolute;
+	height: 30px;
+	width: 100px;
+	top: 500px;
+	left: 450px;
+}
+
+#time {
+	font-size: 28px;
+	font-family: Impact;
+	color: #006400;
+}
+
+#game_win {
+	height: 550px;
+	width: 500px;
+	background-color: #009000;
+	position: absolute;
+	top: 25px;
+	left: 250px;
+	z-index: 1000px;
+	visibility: hidden;
+}
+
+#game_lost {
+	height: 250px;
+	width: 500px;
+	background-color: #009000;
+	position: absolute;
+	top: 175px;
+	left: 250px;
+	z-index: 1000px;
+	visibility: hidden;
+}
+
+#status {
+	font-size: 80px;
+	position: absolute;
+	top: 10px;
+	left: 110px;
+}
+
+#score {
+	position: absolute;
+	left: 105px;
+	bottom: 320px;
+}
+
+#add {
+	position: absolute;
+	left: 270px;
+	bottom: 260px;
+}
+
+#bonus {
+	position: absolute;
+	left: 10px;
+	bottom: 200px;
+}
+
+#total {
+	color: #000080;
+	position: absolute;
+	left: 16px;
+	bottom: 100px;
+}
+
+#new_game {
+	background-color: #000080;
+	border-style: outset;
+	border-width: 5px;
+	border-color: #47a3ff;
+	border-radius: 15px;
+	text-align: center;
+	font-family: Impact;
+	font-size: 30px;
+	color: #47a3ff;
+	height: 40px;
+	width: 150px;
+	position: absolute;
+	bottom: 25px;
+	left: 175px;
+}
+
+#scoreCounter {
+	font-size: 28px;
+	font-family: Impact;
+	color: #006400;
+	border-style: solid;
+	border-style: inset;
+	border-color: #ffff00;
+	border-width: 5px;
+	background-color: #ffff00;
+	text-align: center;
+	position: absolute;
+	height: 30px;
+	width: 100px;
+	top: 30px;
+	left: 20px;
+}
+
+.card {
+	height: 80px;
+	width: 60px;
+	z-index: 0;
+}
+
+.score {
+	font-family: Impact;
+	font-size: 40px;
+	color: #ffff00;
+}
