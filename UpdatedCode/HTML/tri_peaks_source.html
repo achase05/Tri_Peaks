@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tri Peaks Solitaire</title>
+		<link rel="stylesheet" type="text/css" href="tri_peaks_css.css">
+		<script src="tri_peaks_jscript.js"></script>
+	</head>
+	
+	<body>
+		<div id="table">
+			<div id="layout">	
+			</div>
+			
+			<div id="play_div" onclick="startplay()">
+				<span>Play</span>
+			</div>
+			
+			<!--div id="replay_div" onclick="replay()">
+				<span>Replay</span>
+			</div-->
+			
+			<div id="deck_div">
+				<img id="draw" class="card" src="card_back.png" onclick="dealCard()"/>
+			</div>
+			
+			<div id="timer_div">
+				<span id = "time" align="center">2:30</span>
+			</div>
+			
+			<div id="trash">
+			</div>
+			
+			<div id="game_win">
+				<span class="score" id="status">YOU WIN!</span>
+				<span class="score" id="score">Score: </span><br>
+				<span class="score" id="add">+</span><br>
+				<span class="score" id="bonus">Time Bonus: </span><br><br><br>
+				<span class="score" id="total">Total Score: </span>
+				<div id="new_game" onclick="newGame()">New Game</div>
+			</div>
+			
+			<div id="game_lost">
+				<span class="score" id="status">You Lose</span>
+				<div id="new_game" onclick="newGame()">New Game</div>
+			</div>
+			
+			<div>Score</div>
+			<div id = "scoreCounter">0000</div>
+		</div>
+	</body>
+</html>
